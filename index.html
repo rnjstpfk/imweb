@@ -1,0 +1,387 @@
+<!DOCTYPE html>
+<html lang="ko">
+
+<head>
+    <title> 아임웹 클론코딩</title>
+    <meta charset='utf-8'>
+    <meta name='viewport' content='width=device-width, initial-scale=1.0'>
+    <meta name='Title' content='아임웹'>
+    <meta name='Keywords' content='웹, 아임웹, 아임'>
+    <meta name='Description' content='반응형 웹사이트 클론 코딩'>
+    <meta name='Author-Date' content='2025.09.08'>
+
+
+    <!-- 접근성 텍스트(skip) 숨김 -->
+    <style>
+        #skip {
+            overflow: hidden;
+            position: absolute;
+            width: 0;
+            height: 0;
+            line-height: 0;
+            text-indent: -9999px;
+        }
+    </style>
+
+    <!-- 폰트어썸 -->
+    <link rel='stylesheet' href='https://use.fontawesome.com/releases/v5.5.0/css/all.css'>
+    <link rel='stylesheet' href='https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css'>
+
+    <!-- 구글폰트 아이콘 -->
+    <link rel='stylesheet'
+        href='https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@48,400,0,0' />
+
+    <!-- CSS 리셋 -->
+    <link rel='stylesheet' href='https://cdn.jsdelivr.net/npm/reset-css@5.0.1/reset.min.css'>
+
+    <!-- 제이쿼리 3.7 CDN -->
+    <script src='https://code.jquery.com/jquery-3.7.0.min.js' crossorigin='anonymous'></script>
+    <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
+
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.css" />
+    <!-- 로컬 CSS -->
+    <link rel='stylesheet' href='./css/style.css' />
+
+    <!-- 로컬 js -->
+    <script src='./js/script.js' defer></script>
+
+</head>
+
+<body>
+    <!-- 시각장애인 웹 접근성을 위한 skip _ 지우지않아도 됩니다. -->
+
+    <ul id='skip'>
+        <li><a href='#header'>헤더 바로가기</a></li>
+        <li><a href='#nav'>메뉴 바로가기</a></li>
+        <li><a href='#content'>내용 바로가기</a></li>
+        <li><a href='#footer'>내용 바로가기</a></li>
+    </ul>
+
+    <!-- 공백을 위한 공간입니다. -->
+
+    <div id="wrap">
+        <div class="popup">
+
+            <div class="swiper popupSwiper">
+                <div class="swiper-wrapper">
+                    <div class="swiper-slide" data-bg="#15181e">
+                        <img src="./img/KakaoTalk_20250908_094414717.png" />
+                    </div>
+                    <div class="swiper-slide" data-bg="#f5fcff">
+                        <img src="./img/KakaoTalk_20250908_094414717_01.png" />
+                    </div>
+                    <div class="swiper-slide" data-bg="#15181e">
+                        <img src="./img/KakaoTalk_20250908_094414717_02.jpg" />
+                    </div>
+                </div>
+                <div class="leftBtn swiper-button_prev">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M15 18L9 12L15 6" stroke="currentColor" stroke-width="1.2"
+                            vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+                <div class="rightBtn swiper-button_next">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M9 18L15 12L9 6" stroke="currentColor" stroke-width="1.2"
+                            vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </div>
+            </div>
+
+            <div class="closeBtn">
+                <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                    <path d="M19 5L5 19M5 5L19 19" stroke="currentColor" stroke-width="1.2"
+                        vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"></path>
+                </svg>
+            </div>
+        </div>
+        <header id="header">
+            <nav id="mobilenav" class="mobile">
+                <ul>
+                    <li><a href="#">주요기능</a>
+                        <ul>
+                            <li><a href="#">웹사이트</a></li>
+                            <li><a href="#">쇼핑몰</a></li>
+                            <li><a href="#">글로벌판매</a></li>
+                            <li><a href="#">앱스토어</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">템플릿</a>
+                        <ul>
+                            <li><a href="#">웹사이트</a></li>
+                            <li><a href="#">쇼핑몰</a></li>
+                            <li><a href="#">글로벌판매</a></li>
+                            <li><a href="#">앱스토어</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#" class="after-none">요금</a></li>
+                    <li><a href="#">전문가 찾기</a>
+                        <ul>
+                            <li><a href="#">웹사이트</a></li>
+                            <li><a href="#">쇼핑몰</a></li>
+                            <li><a href="#">글로벌판매</a></li>
+                            <li><a href="#">앱스토어</a></li>
+                        </ul>
+                    </li>
+                    <li><a href="#">스토리</a>
+                        <ul>
+                            <li><a href="#">웹사이트</a></li>
+                            <li><a href="#">쇼핑몰</a></li>
+                            <li><a href="#">글로벌판매</a></li>
+                            <li><a href="#">앱스토어</a></li>
+                        </ul>
+                    </li>
+                    <hr>
+                    <li><a href="#">고객지원</a>
+                        <ul>
+                            <li><a href="#">웹사이트</a></li>
+                            <li><a href="#">쇼핑몰</a></li>
+                            <li><a href="#">글로벌판매</a></li>
+                            <li><a href="#">앱스토어</a></li>
+                        </ul>
+                    </li>
+                </ul>
+                <div class="mobile-Menu-footer">
+                    <ul>
+                        <li><a href="#">로그인</a></li>
+                        <li><a href="#">무료로 시작하기</a></li>
+                    </ul>
+                </div>
+                <button class="closeBtn">
+                    <svg width="100%" height="100%" viewBox="0 0 24 24" fill="none" xmlns="http://www.w3.org/2000/svg">
+                        <path d="M19 5L5 19M5 5L19 19" stroke="currentColor" stroke-width="1.2"
+                            vector-effect="non-scaling-stroke" stroke-linecap="round" stroke-linejoin="round"></path>
+                    </svg>
+                </button>
+            </nav>
+            <div class="header-left">
+                <h1><a href="/"><img src="./img/imweb_logo_v2.svg" alt="logo"></a></h1>
+                <div class="mobileMenu mobile">
+                    <a href="#"><img src="./img/bars-solid.svg" alt="mobileMenu"></a>
+                </div>
+                <nav id="nav">
+                    <ul>
+                        <li><a href="#">주요기능</a>
+                            <ul>
+                                <li><a href="#">웹사이트</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">글로벌판매</a></li>
+                                <li><a href="#">앱스토어</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">템플릿</a>
+                            <ul>
+                                <li><a href="#">웹사이트</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">글로벌판매</a></li>
+                                <li><a href="#">앱스토어</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#" class="after-none">요금</a></li>
+                        <li><a href="#">전문가 찾기</a>
+                            <ul>
+                                <li><a href="#">웹사이트</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">글로벌판매</a></li>
+                                <li><a href="#">앱스토어</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">스토리</a>
+                            <ul>
+                                <li><a href="#">웹사이트</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">글로벌판매</a></li>
+                                <li><a href="#">앱스토어</a></li>
+                            </ul>
+                        </li>
+                        <li><a href="#">고객지원</a>
+                            <ul>
+                                <li><a href="#">웹사이트</a></li>
+                                <li><a href="#">쇼핑몰</a></li>
+                                <li><a href="#">글로벌판매</a></li>
+                                <li><a href="#">앱스토어</a></li>
+                            </ul>
+                        </li>
+                    </ul>
+                </nav>
+
+                <div class="my mobile">
+                    <a href="#">My</a>
+                </div>
+            </div>
+            <div class="header-right">
+                <ul>
+                    <li><a href="#">내사이트</a></li>
+                    <li><a href="#">로그인</a></li>
+                    <li><a href="#">무료로 시작하기</a></li>
+                </ul>
+            </div>
+        </header>
+
+        <div id="content">
+            <section class="section1">
+                <div class="pc">
+                    <h2>꿈꾸는 모든것, imweb AI와 함께</h2>
+                    <div class="animated-text"><h3 class="accent"></h3></div>
+                    <div class="section1Box">
+                        <div class="icon"><img src="./img/imweb_symbol_logo_large.svg" alt="logo_L">
+                        <span>imweb AI</span>
+                        </div>
+                        <textarea aria-label="AI로 웹사이트를 생성하기 위한 프롬프트 입력" class="css-1w4acwu">최소 25자 이상으로 필요한 웹사이트의 컨셉을 구체적으로 알려주세요. 참고 URL도 첨부 가능해요. AI로 만들기는 하루 한번만 가능해요!
+                        </textarea>
+                    </div>
+                </div>
+                <div class="mobile">
+                    <div class="video">
+                        <video src="./img/hero-tablet-1279x1706.mp4" autoplay muted playsinline></video>
+                    </div>
+                    <button class="mymake">
+                        지금 나만의 브랜드 만들기
+                    </button>
+                </div>
+            </section>
+            <section class="section2">
+                <div class="pc">
+                    <h2>물음표를 넘어서면 브랜드가 시작되죠</h2>
+                    <div class="carousel-wrapper">
+                        <div class="nav-button left" id="prevBtn">
+                            <img src="./img/prev.png" alt="prevBtn">
+                        </div>
+                        <div class="carousel" id="carouselInner">
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-1.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-2.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-3.mp4" loop muted autoplay></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                                <button class="pc-play-btn"></button>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-4.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-5.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-6.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-7.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-8.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-9.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-10.mp4" loop muted></video>
+                                </div>
+                                <div class="text-container">
+                                    <p class="title">미친짓인가?</p>
+                                    <p class="desc">포마이시스</p>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="nav-button right" id="nextBtn">
+                            <img src="./img/next.png" alt="nextBtn">
+                        </div>
+                    </div>
+                </div>
+
+                <div class="mobile">
+                    <h2>물음표를 넘어서면 <br> 브랜드가 시작되죠</h2>
+                    <div class="carousel-wrapper">
+                        <div class="carousel" id="carouselInner1">
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-1.mp4" loop muted></video>
+                                </div>
+                                <button class="mobileplay"></button>
+                                <p class="mobile-text-title">평생 회사에서 일 할 수 있을까?</p>
+                                <p class="mobile-text-desc">행잉 스터프</p>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-2.mp4" loop muted></video>
+                                </div>
+                                <button class="mobileplay"></button>
+                                <p class="mobile-text-title">친구랑 동업하면 안돼</p>
+                                <p class="mobile-text-desc">행잉 스터프</p>
+                            </div>
+                            <div class="carousel-item">
+                                <div class="video-container">
+                                    <video src="https://static-v2.imweb.me/io/home/brandfilm-pc-3.mp4" loop muted></video>
+                                </div>
+                                <button class="mobileplay"></button>
+                                <p class="mobile-text-title">평생 회사에서</p>
+                                <p class="mobile-text-desc">행잉 스터프</p>
+                            </div>
+
+                    </div>
+                </div>
+            </section>
+            <section class="section3"></section>
+        </div>
+        <footer id="footer"></footer>
+    </div>
+</body>
+
+</html>

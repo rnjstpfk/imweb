@@ -429,11 +429,37 @@ a {
   overflow-x: auto;
   min-width: -moz-max-content;
   min-width: max-content;
+  transition: all 0.6s ease, width 0.1s ease, height 0.1s ease;
   /*  scroll-behavior: smooth; */
 }
 .section2 .pc .carousel-wrapper .carousel .carousel-item {
   flex-shrink: 0;
   position: relative;
+  transition: all 0.6s ease;
+  /* .pc-play-btn{
+
+    user-select: none;
+    width: 64px;
+    height: 64px;
+    border: none;
+    padding: 0px;
+    margin: 0px;
+    background-image: url(../img/mobile-play-button.png);
+    background-size: contain;
+    opacity: 1;
+    position: absolute;
+    z-index: 10;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    cursor: pointer;
+    border-radius: 20px;
+    display: none;
+
+  }
+  &:hover .pc-play-btn{
+      display: block;
+  } */
 }
 .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(1), .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(5), .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(6), .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(10) {
   width: 15vw;
@@ -459,6 +485,9 @@ a {
   height: 13%;
   width: 100%;
   position: absolute;
+  transition: all 0.3s;
+  bottom: -15px;
+  left: 0;
 }
 .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(3) .text-container .title, .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(8) .text-container .title {
   font-size: 24px;
@@ -467,6 +496,9 @@ a {
 .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(3) .text-container .desc, .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(8) .text-container .desc {
   margin-top: 10px;
   font-size: 12px;
+}
+.section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(3):hover, .section2 .pc .carousel-wrapper .carousel .carousel-item:nth-child(8):hover {
+  cursor: url("../img/mobile-play-button.png"), auto;
 }
 .section2 .pc .carousel-wrapper .carousel .carousel-item .video-container {
   width: 100%;
@@ -486,29 +518,23 @@ a {
   height: 0px;
   overflow: hidden;
 }
-.section2 .pc .carousel-wrapper .carousel .carousel-item .pc-play-btn {
-  -webkit-user-select: none;
-     -moz-user-select: none;
-          user-select: none;
-  width: 64px;
-  height: 64px;
-  border: none;
-  padding: 0px;
-  margin: 0px;
-  background-image: url(../img/mobile-play-button.png);
-  background-size: contain;
-  opacity: 1;
-  position: absolute;
-  z-index: 10;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
-  cursor: pointer;
-  border-radius: 20px;
-  display: none;
+.section2 .pc .carousel-wrapper .carousel .carousel-item.expanded {
+  width: 90vw !important;
+  height: 90vh !important;
+  padding: 0 !important;
+  z-index: 20;
+  transition: all 0.6s ease;
 }
-.section2 .pc .carousel-wrapper .carousel .carousel-item:hover .pc-play-btn {
-  display: block;
+.section2 .pc .carousel-wrapper .carousel .carousel-item.hidden {
+  opacity: 0;
+  display: none;
+  transition: all 0.6s ease;
+  transform: scale(0.8) translateX(-100%);
+  pointer-events: none;
+}
+.section2 .pc .carousel-wrapper .carousel.expanded {
+  justify-content: center;
+  transition: all 0.6s ease;
 }
 .section2 .pc .nav-button {
   position: absolute;

@@ -27,9 +27,9 @@ $(function () {
   });
 
 
-  //모바인 메뉴 Moblienav
+  //모바인 메뉴 mobilenav
 
-  $('#Moblienav>ul>li>a').click(function (e) {
+  $('#mobilenav>ul>li>a').click(function (e) {
     e.preventDefault();
     let $this = $(this);
     let submenu = $this.next("ul");
@@ -37,9 +37,9 @@ $(function () {
       submenu.slideUp();  //서브메뉴 닫기
       $this.removeClass('active'); //화살표 원상태
     } else {
-      $('#Moblienav>ul ul').slideUp();  //모두 닫기
+      $('#mobilenav>ul ul').slideUp();  //모두 닫기
       submenu.slideDown(); //클릭한거만 열리기
-      $('#Moblienav>ul>li>a').removeClass("active"); //모든 화살표 원래대로
+      $('#mobilenav>ul>li>a').removeClass("active"); //모든 화살표 원래대로
       $this.addClass('active');  //선택한 화살표 위로
     }
 
@@ -49,13 +49,13 @@ $(function () {
 
 
   //햄버거메뉴
-  $('.moblieMenu').click(function (e) {
+  $('.mobileMenu').click(function (e) {
     e.preventDefault();
-    $('#Moblienav').addClass('open');
+    $('#mobilenav').addClass('open');
     //$('#Movienav').css('left', '-100%').stop().animate({left:0}, 500);
   });
   $('.closeBtn').click(function () {
-    $('#Moblienav').removeClass('open');
+    $('#mobilenav').removeClass('open');
   });
 
 
@@ -153,4 +153,101 @@ $(function () {
     }
   });
 
+
+
+  //영상 누르면 커지기&음소거 해제
+  let isExpanded = false;
+  $("#carouselInner .video-container").on("click", function(){
+    const $item = $(this).closest("#carouselInner .carousel-item");
+    const $carousel = $item.closest("#carouselInner.carousel");
+    console.log(".carousel 클릭")
+
+    if(!isExpanded){
+      $carousel.addClass("expanded");
+      $item.addClass("expanded");
+
+      $carousel.find(".carousel-item").not($item).addClass("hidden");
+      $item.css("cursor", 'url("../img/cursor-close.png"), auto');
+      isExpanded = true;
+      const $video = $item.find("video").get(0);
+      $video.muted = false;
+    }else{
+      
+      $carousel.removeClass("expanded");
+      $carousel.find(".carousel-item").removeClass("hidden expanded");
+      $item.css("cursor", 'url("../img/mobile-play-button.png"), auto');
+
+      const $video = $item.find("video").get(0);
+      $video.muted = true;
+
+      isExpanded = false;
+    }
+  });
+
+
+  //양쪽 버튼 클릭시 슬라이드
+  const _carousel=$("#carouselInner");
+  let _items=_carousel.find('.carousel-item');
+  let centerIndex=2; //가운데 인덱스
+  let animating=false;
+  let textposition = _items.find('.text-container')
+
+  //활성화 업데이트
+  function updateActive(){
+    _items=_carousel.find(".carousel-item");
+    _items.removeClass("active");
+    _items.eq(centerIndex).addClass("active")
+  }
+
+  updateActive();
+  function slide(direction){
+    if(animating) return;
+    animating=true;
+    const itemWidth=_items.eq(centerIndex).outerWidth(true);
+    if(direction==="prev"){
+      //마지막에 있는 아이템을 맨 앞에 붙임
+      _carousel.prepend(_carousel.find('.carousel-item').last());
+
+      _carousel.css({
+        transition:"none",
+        transform:`translateX(-${itemWidth}px)`
+      });
+      requestAnimationFrame(()=>{
+        _carousel.css({
+          transition: "transform .6s ease",
+          transform:"translateX(0)"
+        })
+      })
+
+
+      setTimeout(()=>{
+        _carousel.css({transition:"none",transform:"translateX(0)"});
+        updateActive();
+        animating=false;
+
+      }, 100)
+
+      textposition.css({bottom: '-96px', left: '600px'}).animate({bottom: '-15px', left: 0}, 300);
+    }else{
+      _carousel.css({
+        transition: "transform .3s ease",
+        transform: `translateX(-${itemWidth}px)`
+
+        
+      });
+      setTimeout(()=>{
+        _carousel.css({transition:"none",transform:"translateX(0)"});
+        _carousel.append(_carousel.find(".carousel-item").first())
+        updateActive();
+        animating=false;
+
+      }, 100)
+      textposition.css({bottom: '-96px', left: '600px'}).animate({bottom: '-15px', left: 0}, 300);
+    }
+  }
+
+
+
+  $('#nextBtn').on("click", function(){slide("next")});
+  $('#prevBtn').on("click", function(){slide("prev")});
 });

@@ -250,4 +250,20 @@ $(function () {
 
   $('#nextBtn').on("click", function(){slide("next")});
   $('#prevBtn').on("click", function(){slide("prev")});
+
+
+
+
+
+  //section3
+  $(window).on("scroll", function(){
+
+    let scrollTop = $(window).scrollTop();
+    //console.log(scrollTop);
+    let section3 = $('.section3');
+    let section3Top = section3.offset().top;
+    
+  });
+
+
 });

@@ -259,9 +259,27 @@ $(function () {
   $(window).on("scroll", function(){
 
     let scrollTop = $(window).scrollTop();
-    //console.log(scrollTop);
     let section3 = $('.section3');
     let section3Top = section3.offset().top;
+    let innerHeight = section3.find(".inner").height();
+    let windowH = $(window).height();
+
+    let fixText = $(".fixTextCenter");
+    let fixTitle = $(".section3Title");
+
+    //섹션시작~섹션 끝 사이일때는 fixed유지
+    if(scrollTop >= section3Top && scrollTop < section3Top + innerHeight - windowH){
+      fixText.css({opacity:1, position: "fixed", top: 0});
+      fixTitle.css({opacity:1, position: "fixed", bottom: "100px"});
+      
+    }else if(scrollTop >= section3Top + innerHeight - windowH){ //inner 끝나면 absolute로 변환해서 스크롤 되게
+      fixText.css({position: "absolute", top: 0});
+      fixTitle.css({position: "absolute", bottom: "100px"});
+
+    }else{  //섹션 위에 있을 때는 숨김처리
+      fixText.css({position: "absolute", top: 0});
+      fixTitle.css({position: "absolute", bottom: "100px"});
+    }
     
   });
 

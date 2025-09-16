@@ -5,6 +5,7 @@ a{text-decoration: none; color: #333}
 .mobile{
   display: none;
 }
+.pc{display: block;}
 
 .popup{
      padding: 5px;
@@ -380,10 +381,6 @@ a{text-decoration: none; color: #333}
       }
     }
   }
-
-
-
-
 .section2{
     .pc{
       padding: 50px 20px;
@@ -679,6 +676,7 @@ a{text-decoration: none; color: #333}
       z-index: 9999;
       top: 0;
       left: 0;
+      opacity: 0;
       h2{
         font-size: 36px;
         color: #fff;
@@ -699,6 +697,7 @@ a{text-decoration: none; color: #333}
       position: fixed;
       bottom: 100px;
       left: 32px;
+      opacity: 0;
       h3{
         font-weight: 700;
         font-size: 22px;
@@ -711,6 +710,208 @@ a{text-decoration: none; color: #333}
 }
 .section4{
     width: 100vw;
-    height: 100vh;
-    background: pink;
+    position: relative;
+    overflow: visible;
+    .section4-slide{
+      position: relative;
+      width: 100%;
+      height: 100%;
+      top: 0;
+      left: 0;
+        .section4_fixed{
+          position: sticky;
+          width: 100%;
+          height: 100vh;
+          top: 0;
+          left: 0;
+          display: flex;
+          align-items: center;
+          overflow: hidden;
+          justify-content: center;
+          @media screen  and (max-width: 992px){
+            position: relative;
+            width: 100%;
+            height: auto;
+            padding: 50px 20px;
+            .section4_wrap{
+              width: 100%;
+              flex-shrink: 0;
+              display: flex;
+              flex-direction: column;
+              -webkit-box-align: stretch;
+              align-items: stretch;
+                .sectionTitle{
+                    h2.mobile{
+                      display: block;
+                      font-size: 42px;
+                      font-weight: 700;
+                      line-height: 150%;
+                      color: #15181e;
+                    }
+                    .pc{display: none;}
+                }
+                .flexSlide{
+                  margin-top: 50px;
+                    .inlineflex{
+                        position: relative;
+                        a.css-0{
+                            margin-top: 100px;
+                            display: block;
+                            .css-ruapjk{
+                                .css-hg8qlu::after{
+                                  content: "";
+                                  display: block;
+                                  clear: both;
+                                    video{
+                                      
+                                    }
+                                }
+                                .css-157z4ba{
+                                    
+                                    .css-qensae{
+                                      display: flex;
+                                      justify-content: space-between;
+                                      width: 520px;
+                                      margin-top: 20px;
+                                        .css-kkhxzi{
+                                          font-size: 30px;
+                                          font-weight: bold;
+                                          line-height: 120%;
+                                          
+                                        }
+                                        >div{
+                                            img{}
+                                        }
+                                    }
+                                    .css-r77lhh{
+                                      font-size: 17px;
+                                      color: #777;
+                                      margin-top: 10px;
+                                      margin-bottom: 50px;
+                                    }
+                                }
+                            }
+                        }
+                        a.css_1, a.css_3{
+                            margin-top: 50px;
+                            .css-ruapjk{
+                                .css-hg8qlu{
+
+                                    video{float: right;}
+                                }
+                                .css-157z4ba{
+                                  float: right;
+                                }
+                            }
+                        }
+                        .css-1v8r1hd{}
+                    }
+                }
+            }
+          }
+            .section4_wrap{
+              --container-width: 1440px;
+              --container-padding: 0;
+              --selected-width: calc(var(--container-width) * 0.362);
+              --selected-height: calc(var(--container-width) * 0.446);
+              --normal-width: calc(var(--container-width) * 0.290);
+              --gap: calc(var(--container-width) * 0.029);
+              padding: 50px 0;
+              @media screen and (max-width: 1280px){
+                        --container-padding: 0px;
+                        --container-width: 1200px;
+                        --selected-width: calc(var(--container-width) * 0.362);
+                        --selected-height: calc(var(--container-width) * 0.446);
+                        --normal-width: calc(var(--container-width) * 0.290);
+                        --gap: calc(var(--container-width) * 0.029);
+                    
+              }
+                .sectionTitle{
+                  position: absolute;
+                  width: 100%;
+                  top: 0;
+                  left: 0;
+                    h2{
+                      position: relative;
+                      font-size: 48px;
+                      font-weight: 700;
+                      line-height: 1.36;
+                      width: 100%;
+                      margin-inline: auto;
+                      max-width: var(--container-width);
+                      padding-inline: var(--container-padding);
+                      margin-top: 60px;
+                    }
+                }
+                .flexSlide{
+                  width: 100%;
+                  padding-bottom: 160px;
+                  margin-left: 50vw;
+                  padding-top: 150px;
+                    .inlineflex{
+                        display: inline-flex;
+                        flex-wrap: nowrap;
+                        margin-left: 50vw;
+                        align-items: center;
+                        height: var(--selected-height);
+                        a.css-0{
+                            .css-ruapjk{
+                                .css-hg8qlu{
+                                    video{
+                                      border-radius: 20px;
+                                    }
+                                }
+                                .css-157z4ba{
+                                  opacity: 0;
+                                    .css-qensae{
+                                      display: flex;
+                                      justify-content: space-between;
+                                      margin-top: 30px;
+                                        .css-kkhxzi{
+                                          font-size: 28px;
+                                          font-weight: bold;
+                                          line-height: 1.2;
+                                          margin-bottom: 20px;
+                                        }
+                                        >div{
+                                            img{}
+                                        }
+                                    }
+                                    .css-r77lhh{
+                                      font-size: 16px;
+                                      color: #777;
+                                      line-height: 1.1;
+                                    }
+                                }
+                            }
+                        }
+                        .css-1v8r1hd{
+                          flex-grow: 0;
+                          flex-shrink: 0;
+                          flex-basis: var(--gap);
+                          height: 100%;
+                          background: #fff;
+                        }
+                    }
+                    a.css_0{
+                      .css-ruapjk{
+                          .css-hg8qlu{
+                              video{
+                                border-radius: 20px;
+                              }
+                          }
+                          .css-157z4ba{
+                            opacity: 1;
+                              .css-qensae{}
+                            }
+                      }
+                    }
+                }
+            }
+        }
+    }
+}
+.section5{
+  height: 1200px;
+  width: 100%;
 }

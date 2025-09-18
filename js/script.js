@@ -276,9 +276,10 @@ $(function(){
     winW = $win.width();
     winH = $win.height();
     itemWidth = winW * 0.325; // 아이템 폭 (조정 가능)
-    gap=winW *0.02;
-    totalWidth =($items.length* itemWidth) + (($items.length - 1) * gap); // 마지막 여백
-    totalScrollX = totalWidth - winW;
+    gap=winW * 0.001;
+    totalWidth =($items.length * itemWidth) + (($items.length - 1) * gap); // 마지막 여백
+    const extraPadding = Math.floor(itemWidth * 2.5); // 0.6은 실험값, 필요시 조절
+    totalScrollX = Math.max(0, totalWidth - winW + extraPadding);
 
     // 섹션 높이 = 가로 스크롤 거리 + 화면 높이
     $section4.css("height", (totalScrollX + winH) + "px");
@@ -293,6 +294,11 @@ $(function(){
   let targetX = 0; */
 
   $win.on("scroll", function(){
+    let windowWidth = $win.width();
+    if(windowWidth <= 992){
+      // 모바일/태블릿에서는 스크롤 이벤트 무시
+      return;
+    }
     const scrollTop = $win.scrollTop();
     const sectionTop = $section4.offset().top;
     const sectionHeight = $section4.outerHeight();
@@ -301,16 +307,16 @@ $(function(){
       let progress = (scrollTop - sectionTop) / (sectionHeight - winH);
       progress = Math.min(progress, 1);
 
-     let targetX = (progress * totalScrollX) + 500;
+     let targetX = (progress * totalScrollX);
 
       // inlineflex 이동 (오른쪽에서 왼쪽으로)
       $inline.css("transform", `translateX(-${targetX}px)`);
 
       // sectionTitle 60% 지나면 사라지기
-      $('.sectionTitle').css("opacity", progress > 0.6 ? 0:1);
+      $('.sectionTitle').css("opacity", progress > 0.2 ? 0:1);
       // active 처리
       let index=Math.floor(targetX / (itemWidth+gap));
-      index=Math.max(0, Math.min(index, $items.length + 2));
+      index=Math.max(0, Math.min(index, $items.length- 1));
       $items.removeClass("active").eq(index).addClass("active")
     }
   });

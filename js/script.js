@@ -259,13 +259,7 @@ $(window).on("scroll", function(){
 
 
 //section4
-
-
-  
-});
-
-$(function(){
-  const $win = $(window);
+const $win = $(window);
   const $section4 = $(".section4");
   const $inline = $(".section4 .inlineflex");
   const $items = $(".inlineflex .css-0");
@@ -288,38 +282,45 @@ $(function(){
   }
 
   recalc();
-  $win.on("resize", recalc);
+  $win.on("resize", recalc); 
 
-/*   let currentX = 0;
-  let targetX = 0; */
 
-  $win.on("scroll", function(){
-    let windowWidth = $win.width();
-    if(windowWidth <= 992){
-      // 모바일/태블릿에서는 스크롤 이벤트 무시
-      return;
-    }
-    const scrollTop = $win.scrollTop();
-    const sectionTop = $section4.offset().top;
-    const sectionHeight = $section4.outerHeight();
 
+ $win.on("scroll", function(){
+   const scrollTop = $win.scrollTop();
+  const sectionTop = $section4.offset().top;
+  const sectionHeight = $section4.outerHeight();
+  let windowWidth = $win.width();
+
+  if(windowWidth > 992){
+    // PC 가로 스크롤
     if(scrollTop >= sectionTop && scrollTop < sectionTop + sectionHeight - winH){
       let progress = (scrollTop - sectionTop) / (sectionHeight - winH);
       progress = Math.min(progress, 1);
 
-     let targetX = (progress * totalScrollX);
+      let targetX = (progress * totalScrollX);
 
-      // inlineflex 이동 (오른쪽에서 왼쪽으로)
+      // 가로 스크롤
       $inline.css("transform", `translateX(-${targetX}px)`);
 
-      // sectionTitle 60% 지나면 사라지기
+      // 제목 투명도
       $('.sectionTitle').css("opacity", progress > 0.2 ? 0:1);
+
       // active 처리
-      let index=Math.floor(targetX / (itemWidth+gap));
-      index=Math.max(0, Math.min(index, $items.length- 1));
-      $items.removeClass("active").eq(index).addClass("active")
+      let index = Math.floor(targetX / (itemWidth + gap));
+      index = Math.max(0, Math.min(index, $items.length - 1));
+      $items.removeClass("active").eq(index).addClass("active");
     }
-  });
+  } else {
+    // 모바일/태블릿 → 그냥 세로 스크롤만 (transform 적용하지 않음)
+    $inline.css("transform", "");
+    $('.sectionTitle').css("opacity", 1);
+    $items.removeClass("active");
+    $section4.css("height", "100%");
+  }
+
+  handleVideoPlay(); // 스크롤 할 때마다 비디오 체크
+});
 
   // 비디오 자동재생
   function handleVideoPlay(){
@@ -339,11 +340,18 @@ $(function(){
     }
   }
 
-  handleVideoPlay();
-  $win.on("resize", handleVideoPlay);
+  //section5 tab
+  $('.section5Tab .tabs ul li a').click(function(e){
+    e.preventDefault();
+    let index = $(this).parent().index();
+    $('.section5Tab .tabs ul li a').removeClass("active");
+    $(this).addClass("active");
 
-  // active 변경 감지
-  $win.on("scroll", handleVideoPlay);
+    $(".section5Contents .cnt").hide();
+    $(".section5Contents .cnt").eq(index).show();
+  });
+  
 });
+
 
 
